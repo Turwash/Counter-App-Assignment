@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
   const [count , setCount] = useState(0);
