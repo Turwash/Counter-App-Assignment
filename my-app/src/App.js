@@ -1,24 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Segment, Grid, Header, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-function App() {
-  const [count , setCount] = useState(0);
-  return (
-    <div className="Container my-5">
-      <div className="card text-center my-5">
-       <div className='card-body'>
-       <h1>Counter App</h1>
-       <div className='my-5'>
-       <h2 className='my-5'>{count}</h2>
-       <button className="btn btn-success mx-3" onClick={()=> setCount(count + 1)}>Increment</button>
-       <button className="btn btn-danger mx-3" onClick={()=> setCount(count - 1)}>Decrement</button>
-      </div>
-      <h3>Done by:- Turwash Chakraborty , Reg.No :- 12101607</h3>
-    </div>
-    </div>
-    </div>
+const App = () => {
+  const [count, setCount] = useState(0);
 
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(0);
+
+  return (
+    <Segment textAlign='center' style={{ padding: '120px', width:'100wh' , height:'100vh', backgroundImage: 'url(https://wallpaperaccess.com/full/19380.jpg)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
+      <Segment textAlign='center' style={{ padding: '40px', boxShadow: '#ccc',height: '55%',width: '40%', left : '373px' }}>
+        <Header as='h2'>Count</Header>
+        <h1>{count}</h1>
+        <Grid columns='equal'>
+          <Grid.Row>
+            <Grid.Column>
+              <Button color='green' content='Increment' onClick={increment}/>
+            </Grid.Column>
+            <Grid.Column>
+              <Button color='red' content='Decrement' onClick={decrement} />
+            </Grid.Column>
+            <Grid.Column>
+              <Button color='blue' content='Reset' disabled={count === 0} onClick={reset} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+      <Header as='h2' style={{padding : '70px', right :'9px', color: 'yellow'}}>Done by : Turwash Chakraborty - 12101607</Header>
+    </Segment>
   );
-}
+};
 
 export default App;
