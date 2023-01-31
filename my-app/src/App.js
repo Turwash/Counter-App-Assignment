@@ -6,7 +6,7 @@ const App = () => {
   const [count, setCount] = useState(0);
 
   const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
+  const decrement = () => count > 0 && setCount(count - 1);
   const reset = () => setCount(0);
 
   return (
@@ -20,7 +20,7 @@ const App = () => {
               <Button color='green' content='Increment' onClick={increment}/>
             </Grid.Column>
             <Grid.Column>
-              <Button color='red' content='Decrement' onClick={decrement} />
+              <Button color='red' content='Decrement' disabled={count === 0} onClick={decrement} />
             </Grid.Column>
             <Grid.Column>
               <Button color='blue' content='Reset' disabled={count === 0} onClick={reset} />
